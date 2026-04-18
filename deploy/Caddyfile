@@ -1,0 +1,20 @@
+# Replace DOMAIN with your actual hostname. If you don't have a domain,
+# use `:443` and accept self-signed warnings, or sign up for a free
+# duckdns.org / a subdomain you own.
+#
+# Caddy auto-provisions Let's Encrypt certs when you use a real domain.
+
+DOMAIN {
+	encode zstd gzip
+
+	# Only accept POST/GET from clients with the bearer token (enforced
+	# by the backend, but we rate-limit here).
+	@api path /exec /version /healthz
+	handle @api {
+		reverse_proxy 127.0.0.1:8787
+	}
+
+	handle {
+		respond "not found" 404
+	}
+}

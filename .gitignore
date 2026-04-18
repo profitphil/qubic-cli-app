@@ -1,0 +1,8 @@
+upstream/
+ios/QubicApp.xcodeproj/
+ios/QubicApp.xcworkspace/
+ios/build/
+ios/DerivedData/
+.DS_Store
+*.xcuserstate
+backend/qubic-api

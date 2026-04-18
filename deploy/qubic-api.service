@@ -1,0 +1,33 @@
+[Unit]
+Description=Qubic CLI API
+After=network.target
+
+[Service]
+Type=simple
+User=qubic
+Group=qubic
+WorkingDirectory=/var/lib/qubic-api
+EnvironmentFile=/etc/qubic-api.env
+ExecStart=/usr/local/bin/qubic-api
+Restart=on-failure
+RestartSec=3
+
+# hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/qubic-api
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target
