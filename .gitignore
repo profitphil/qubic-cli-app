@@ -1,8 +1,20 @@
 upstream/
-ios/QubicApp.xcodeproj/
-ios/QubicApp.xcworkspace/
+.DS_Store
+backend/qubic-api
+
+# iOS / Xcode
 ios/build/
 ios/DerivedData/
-.DS_Store
+**/xcuserdata/
 *.xcuserstate
-backend/qubic-api
+ios/QubicApp.xcodeproj/
+ios/QubicApp.xcworkspace/
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/captures/
+android/**/build/

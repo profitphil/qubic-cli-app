@@ -1,0 +1,18 @@
+[
+  {"name": "Wallet", "order": 1, "icon": "wallet.pass"},
+  {"name": "Assets", "order": 2, "icon": "bitcoinsign.circle"},
+  {"name": "QSwap", "order": 3, "icon": "arrow.left.arrow.right.circle"},
+  {"name": "QEarn", "order": 4, "icon": "chart.line.uptrend.xyaxis"},
+  {"name": "QVault", "order": 5, "icon": "lock.shield"},
+  {"name": "MSVault", "order": 6, "icon": "lock.square.stack"},
+  {"name": "QBond", "order": 7, "icon": "doc.richtext"},
+  {"name": "Quottery", "order": 8, "icon": "dice"},
+  {"name": "Nostromo", "order": 9, "icon": "paperplane"},
+  {"name": "Oracle", "order": 10, "icon": "eye.circle"},
+  {"name": "SmartContract", "order": 11, "icon": "cpu"},
+  {"name": "Voting/Proposal", "order": 12, "icon": "checkmark.seal"},
+  {"name": "Node", "order": 13, "icon": "server.rack"},
+  {"name": "Mining", "order": 14, "icon": "hammer"},
+  {"name": "Utility", "order": 15, "icon": "wrench.and.screwdriver"},
+  {"name": "Debug", "order": 16, "icon": "ant"}
+]

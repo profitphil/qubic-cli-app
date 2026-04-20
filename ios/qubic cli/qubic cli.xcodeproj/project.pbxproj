@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A3A18C22F9420C00007ADA3 /* AssetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */; };
+		4A875F932F93248B005B2123 /* CommandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8C2F93248A005B2123 /* CommandDetailView.swift */; };
+		4A875F942F93248B005B2123 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F822F93248A005B2123 /* Catalog.swift */; };
+		4A875F952F93248B005B2123 /* CommandListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8D2F93248A005B2123 /* CommandListView.swift */; };
+		4A875F962F93248B005B2123 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F902F93248A005B2123 /* RootView.swift */; };
+		4A875F972F93248B005B2123 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F812F93248A005B2123 /* API.swift */; };
+		4A875F982F93248B005B2123 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F912F93248A005B2123 /* SettingsView.swift */; };
+		4A875F992F93248B005B2123 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8A2F93248A005B2123 /* Settings.swift */; };
+		4A875F9A2F93248B005B2123 /* QubicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F862F93248A005B2123 /* QubicApp.swift */; };
+		4A875F9B2F93248B005B2123 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F832F93248A005B2123 /* History.swift */; };
+		4A875F9C2F93248B005B2123 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F852F93248A005B2123 /* Models.swift */; };
+		4A875F9D2F93248B005B2123 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8F2F93248A005B2123 /* ResultView.swift */; };
+		4A875F9E2F93248B005B2123 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8E2F93248A005B2123 /* HistoryView.swift */; };
+		4A875F9F2F93248B005B2123 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8B2F93248A005B2123 /* CategoriesView.swift */; };
+		4A875FA02F93248B005B2123 /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A875F882F93248A005B2123 /* commands.json */; };
+		4A875FA12F93248B005B2123 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A875F872F93248A005B2123 /* categories.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPicker.swift; sourceTree = "<group>"; };
+		4A875F512F9322E8005B2123 /* qubic cli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qubic cli.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A875F812F93248A005B2123 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4A875F822F93248A005B2123 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		4A875F832F93248A005B2123 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		4A875F852F93248A005B2123 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4A875F862F93248A005B2123 /* QubicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QubicApp.swift; sourceTree = "<group>"; };
+		4A875F872F93248A005B2123 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		4A875F882F93248A005B2123 /* commands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commands.json; sourceTree = "<group>"; };
+		4A875F8A2F93248A005B2123 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4A875F8B2F93248A005B2123 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		4A875F8C2F93248A005B2123 /* CommandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandDetailView.swift; sourceTree = "<group>"; };
+		4A875F8D2F93248A005B2123 /* CommandListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandListView.swift; sourceTree = "<group>"; };
+		4A875F8E2F93248A005B2123 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		4A875F8F2F93248A005B2123 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		4A875F902F93248A005B2123 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		4A875F912F93248A005B2123 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4A875FA42F932C0D005B2123 /* Exceptions for "qubic cli" folder in "qubic cli" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"qubic-cli-Info.plist",
+			);
+			target = 4A875F502F9322E8005B2123 /* qubic cli */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4A875F532F9322E8005B2123 /* qubic cli */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4A875FA42F932C0D005B2123 /* Exceptions for "qubic cli" folder in "qubic cli" target */,
+			);
+			path = "qubic cli";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A875F4E2F9322E8005B2123 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A875F482F9322E8005B2123 = {
+			isa = PBXGroup;
+			children = (
+				4A875F532F9322E8005B2123 /* qubic cli */,
+				4A875F812F93248A005B2123 /* API.swift */,
+				4A875F822F93248A005B2123 /* Catalog.swift */,
+				4A875F832F93248A005B2123 /* History.swift */,
+				4A875F852F93248A005B2123 /* Models.swift */,
+				4A875F862F93248A005B2123 /* QubicApp.swift */,
+				4A875F892F93248A005B2123 /* Resources */,
+				4A875F8A2F93248A005B2123 /* Settings.swift */,
+				4A875F922F93248A005B2123 /* Views */,
+				4A875F522F9322E8005B2123 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A875F522F9322E8005B2123 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A875F512F9322E8005B2123 /* qubic cli.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A875F892F93248A005B2123 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A875F872F93248A005B2123 /* categories.json */,
+				4A875F882F93248A005B2123 /* commands.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A875F922F93248A005B2123 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */,
+				4A875F8B2F93248A005B2123 /* CategoriesView.swift */,
+				4A875F8C2F93248A005B2123 /* CommandDetailView.swift */,
+				4A875F8D2F93248A005B2123 /* CommandListView.swift */,
+				4A875F8E2F93248A005B2123 /* HistoryView.swift */,
+				4A875F8F2F93248A005B2123 /* ResultView.swift */,
+				4A875F902F93248A005B2123 /* RootView.swift */,
+				4A875F912F93248A005B2123 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A875F502F9322E8005B2123 /* qubic cli */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A875F5C2F9322F0005B2123 /* Build configuration list for PBXNativeTarget "qubic cli" */;
+			buildPhases = (
+				4A875F4D2F9322E8005B2123 /* Sources */,
+				4A875F4E2F9322E8005B2123 /* Frameworks */,
+				4A875F4F2F9322E8005B2123 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4A875F532F9322E8005B2123 /* qubic cli */,
+			);
+			name = "qubic cli";
+			packageProductDependencies = (
+			);
+			productName = "qubic cli";
+			productReference = 4A875F512F9322E8005B2123 /* qubic cli.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A875F492F9322E8005B2123 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					4A875F502F9322E8005B2123 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 4A875F4C2F9322E8005B2123 /* Build configuration list for PBXProject "qubic cli" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A875F482F9322E8005B2123;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4A875F522F9322E8005B2123 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A875F502F9322E8005B2123 /* qubic cli */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A875F4F2F9322E8005B2123 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A875FA02F93248B005B2123 /* commands.json in Resources */,
+				4A875FA12F93248B005B2123 /* categories.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A875F4D2F9322E8005B2123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A875F932F93248B005B2123 /* CommandDetailView.swift in Sources */,
+				4A875F942F93248B005B2123 /* Catalog.swift in Sources */,
+				4A875F952F93248B005B2123 /* CommandListView.swift in Sources */,
+				4A875F962F93248B005B2123 /* RootView.swift in Sources */,
+				4A875F972F93248B005B2123 /* API.swift in Sources */,
+				4A875F982F93248B005B2123 /* SettingsView.swift in Sources */,
+				4A875F992F93248B005B2123 /* Settings.swift in Sources */,
+				4A875F9A2F93248B005B2123 /* QubicApp.swift in Sources */,
+				4A875F9B2F93248B005B2123 /* History.swift in Sources */,
+				4A3A18C22F9420C00007ADA3 /* AssetPicker.swift in Sources */,
+				4A875F9C2F93248B005B2123 /* Models.swift in Sources */,
+				4A875F9D2F93248B005B2123 /* ResultView.swift in Sources */,
+				4A875F9E2F93248B005B2123 /* HistoryView.swift in Sources */,
+				4A875F9F2F93248B005B2123 /* CategoriesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4A875F5A2F9322F0005B2123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = J5K4636NH7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.3;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A875F5B2F9322F0005B2123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J5K4636NH7;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.3;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A875F5D2F9322F0005B2123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5K4636NH7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "qubic-cli-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cozyla.smart.qubic-cli";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4A875F5E2F9322F0005B2123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5K4636NH7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "qubic-cli-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cozyla.smart.qubic-cli";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A875F4C2F9322E8005B2123 /* Build configuration list for PBXProject "qubic cli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A875F5A2F9322F0005B2123 /* Debug */,
+				4A875F5B2F9322F0005B2123 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A875F5C2F9322F0005B2123 /* Build configuration list for PBXNativeTarget "qubic cli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A875F5D2F9322F0005B2123 /* Debug */,
+				4A875F5E2F9322F0005B2123 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A875F492F9322E8005B2123 /* Project object */;
+}
