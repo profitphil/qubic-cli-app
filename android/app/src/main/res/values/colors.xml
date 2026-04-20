@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="qubic_base">#0B1117</color>
+    <color name="qubic_surface">#111921</color>
+    <color name="qubic_accent">#7FEEDB</color>
+</resources>

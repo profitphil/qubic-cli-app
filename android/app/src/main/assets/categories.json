@@ -7,7 +7,7 @@
   {"name": "MSVault", "order": 6, "icon": "lock.square.stack"},
   {"name": "QBond", "order": 7, "icon": "doc.richtext"},
   {"name": "Quottery", "order": 8, "icon": "dice"},
-  {"name": "Nostromo", "order": 9, "icon": "rocket"},
+  {"name": "Nostromo", "order": 9, "icon": "paperplane"},
   {"name": "Oracle", "order": 10, "icon": "eye.circle"},
   {"name": "SmartContract", "order": 11, "icon": "cpu"},
   {"name": "Voting/Proposal", "order": 12, "icon": "checkmark.seal"},

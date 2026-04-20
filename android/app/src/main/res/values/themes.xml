@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.QubicCli" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/qubic_base</item>
+        <item name="android:navigationBarColor">@color/qubic_base</item>
+        <item name="android:windowBackground">@color/qubic_base</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
