@@ -183,7 +183,10 @@ struct CommandDetailView: View {
             // Skip only OPTIONAL empty args. Required empties must still be
             // passed (as "") so positional arguments don't shift.
             if v.isEmpty && !a.required { continue }
-            args.append(a.type == "hex" ? QubicIdentity.normalizeHexArg(v) : v)
+            // Pass identities through as-is. The CLI deprecated hex format for
+            // issuers and other hex-typed args; it now wants the 60-char Qubic
+            // identity directly.
+            args.append(v)
         }
         if command.needsSeed {
             let seed = useStoredSeed ? settings.seed : (values["__seed"] ?? "")
