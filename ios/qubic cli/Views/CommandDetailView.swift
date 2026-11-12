@@ -183,7 +183,7 @@ struct CommandDetailView: View {
             // Skip only OPTIONAL empty args. Required empties must still be
             // passed (as "") so positional arguments don't shift.
             if v.isEmpty && !a.required { continue }
-            args.append(v)
+            args.append(a.type == "hex" ? QubicIdentity.normalizeHexArg(v) : v)
         }
         if command.needsSeed {
             let seed = useStoredSeed ? settings.seed : (values["__seed"] ?? "")

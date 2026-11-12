@@ -97,7 +97,6 @@ If that gets old, $99/yr Apple Developer gets you 1-year signing.
 - **Backend** runs as a non-root `qubic` user, systemd sandbox (no new privs, read-only root fs, private tmp, etc.).
 - **Concurrency**: a mutex serializes `/exec` calls so two tx signings don't clash.
 - **No shell**: args are passed directly to `execve`, no shell expansion. Null bytes and over-long args are rejected.
-- **Rotate the password on your VPS now** (you pasted it in chat earlier). Ideally switch to SSH keys only.
 
 ## 4. Project layout
 

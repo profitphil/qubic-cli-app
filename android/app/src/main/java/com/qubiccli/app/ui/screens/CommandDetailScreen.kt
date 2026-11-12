@@ -1,5 +1,6 @@
 package com.qubiccli.app.ui.screens
 
+import com.qubiccli.app.data.QubicIdentity
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -79,7 +80,7 @@ fun CommandDetailScreen(nav: NavHostController, flag: String) {
                     if (a.type == "bool") {
                         if (v.lowercase() == "true" || v == "1") continue // flag-only booleans handled elsewhere
                     }
-                    argsOut.add(v)
+                    argsOut.add(if (a.type == "hex") QubicIdentity.normalizeHexArg(v) else v)
                 }
                 if (command.needsSeed) {
                     val seed = if (useStoredSeed) app.settings.seed else (values["__seed"] ?: "")
