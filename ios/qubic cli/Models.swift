@@ -31,3 +31,47 @@ struct ExecResponse: Codable {
     let duration_ms: Int
     let timed_out: Bool
 }
+
+struct ScriptMeta: Codable, Identifiable, Hashable {
+    let name: String
+    let size: Int64
+    let lines: Int
+    let updated_at: Int64
+    var id: String { name }
+}
+
+struct ScriptContent: Codable {
+    let name: String
+    let content: String
+}
+
+struct AttachmentMeta: Codable, Identifiable, Hashable {
+    let name: String
+    let size: Int64
+    let updated_at: Int64
+    var id: String { name }
+}
+
+struct JobSummary: Codable, Identifiable, Hashable {
+    let id: String
+    let script: String
+    let status: String
+    let started_at: Int64
+    let ended_at: Int64?
+    let total_lines: Int
+    let done_lines: Int
+}
+
+struct JobStatus: Codable {
+    let id: String
+    let script: String
+    let status: String     // running | done | failed | canceled
+    let started_at: Int64
+    let ended_at: Int64?
+    let total_lines: Int
+    let done_lines: Int
+    let last_error: String?
+    let log_bytes: Int64
+    let log_tail: String
+    var isTerminal: Bool { status != "running" }
+}

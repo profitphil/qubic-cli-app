@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A3A18C22F9420C00007ADA3 /* AssetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */; };
+		4A444B2E2FEF0EF100A80708 /* ScriptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A444B2D2FEF0EF100A80708 /* ScriptsView.swift */; };
 		4A875F932F93248B005B2123 /* CommandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8C2F93248A005B2123 /* CommandDetailView.swift */; };
 		4A875F942F93248B005B2123 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F822F93248A005B2123 /* Catalog.swift */; };
 		4A875F952F93248B005B2123 /* CommandListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A875F8D2F93248A005B2123 /* CommandListView.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPicker.swift; sourceTree = "<group>"; };
+		4A444B2D2FEF0EF100A80708 /* ScriptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsView.swift; sourceTree = "<group>"; };
 		4A875F512F9322E8005B2123 /* qubic cli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qubic cli.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A875F812F93248A005B2123 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4A875F822F93248A005B2123 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
@@ -45,22 +47,9 @@
 		4A875F912F93248A005B2123 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4A875FA42F932C0D005B2123 /* Exceptions for "qubic cli" folder in "qubic cli" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"qubic-cli-Info.plist",
-			);
-			target = 4A875F502F9322E8005B2123 /* qubic cli */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4A875F532F9322E8005B2123 /* qubic cli */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				4A875FA42F932C0D005B2123 /* Exceptions for "qubic cli" folder in "qubic cli" target */,
-			);
 			path = "qubic cli";
 			sourceTree = "<group>";
 		};
@@ -113,6 +102,7 @@
 		4A875F922F93248A005B2123 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A444B2D2FEF0EF100A80708 /* ScriptsView.swift */,
 				4A3A18C12F9420C00007ADA3 /* AssetPicker.swift */,
 				4A875F8B2F93248A005B2123 /* CategoriesView.swift */,
 				4A875F8C2F93248A005B2123 /* CommandDetailView.swift */,
@@ -158,7 +148,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2640;
-				LastUpgradeCheck = 2640;
+				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					4A875F502F9322E8005B2123 = {
 						CreatedOnToolsVersion = 26.4.1;
@@ -205,6 +195,7 @@
 				4A875F942F93248B005B2123 /* Catalog.swift in Sources */,
 				4A875F952F93248B005B2123 /* CommandListView.swift in Sources */,
 				4A875F962F93248B005B2123 /* RootView.swift in Sources */,
+				4A444B2E2FEF0EF100A80708 /* ScriptsView.swift in Sources */,
 				4A875F972F93248B005B2123 /* API.swift in Sources */,
 				4A875F982F93248B005B2123 /* SettingsView.swift in Sources */,
 				4A875F992F93248B005B2123 /* Settings.swift in Sources */,
@@ -256,7 +247,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J5K4636NH7;
+				DEVELOPMENT_TEAM = 75J3Y5R224;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -280,6 +271,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -320,7 +312,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J5K4636NH7;
+				DEVELOPMENT_TEAM = 75J3Y5R224;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -337,6 +329,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -347,9 +340,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5K4636NH7;
+				DEVELOPMENT_TEAM = 75J3Y5R224;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "qubic-cli-Info.plist";
@@ -364,8 +358,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cozyla.smart.qubic-cli";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qubic.qubic-cli";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -385,9 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5K4636NH7;
+				DEVELOPMENT_TEAM = 75J3Y5R224;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "qubic-cli-Info.plist";
@@ -402,8 +398,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cozyla.smart.qubic-cli";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qubic.qubic-cli";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

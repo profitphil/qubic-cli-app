@@ -35,7 +35,10 @@ struct HistoryView: View {
                 } else {
                     LazyVStack(spacing: 10) {
                         ForEach(history.entries) { entry in
-                            HistoryCard(entry: entry)
+                            NavigationLink(value: entry) {
+                                HistoryCard(entry: entry)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding(.horizontal, 16)
@@ -47,6 +50,108 @@ struct HistoryView: View {
         .qubicBackground()
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(for: HistoryEntry.self) { entry in
+            HistoryDetailView(entry: entry)
+        }
+    }
+}
+
+struct HistoryDetailView: View {
+    let entry: HistoryEntry
+
+    private var txHashes: [String] {
+        let re = try? NSRegularExpression(pattern: "TxHash:\\s*(\\S+)", options: [])
+        guard let re else { return [] }
+        let ns = entry.stdoutHead as NSString
+        let matches = re.matches(in: entry.stdoutHead, range: NSRange(location: 0, length: ns.length))
+        return matches.map { ns.substring(with: $0.range(at: 1)) }
+    }
+
+    private var explorerLinks: [String] {
+        txHashes.map { "https://explorer.qubic.org/network/tx/" + $0 }
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 6) {
+                    Image(systemName: entry.exitCode == 0 ? "checkmark.circle.fill" : "xmark.octagon.fill")
+                        .foregroundStyle(entry.exitCode == 0 ? Theme.success : Theme.danger)
+                    Text(entry.flag).font(.system(.headline, design: .monospaced))
+                    Spacer()
+                    Text(entry.date, style: .relative).font(.caption).foregroundStyle(Theme.textDim)
+                }
+
+                if !txHashes.isEmpty {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("TxHashes (\(txHashes.count))").font(.caption.bold()).foregroundStyle(Theme.textDim)
+                        ForEach(txHashes, id: \.self) { h in
+                            Text(h)
+                                .font(.caption2.monospaced())
+                                .textSelection(.enabled)
+                                .foregroundStyle(Theme.text)
+                        }
+                    }
+                    .padding(10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Theme.surface)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Command").font(.caption.bold()).foregroundStyle(Theme.textDim)
+                    Text(entry.args.joined(separator: " "))
+                        .font(.caption2.monospaced())
+                        .textSelection(.enabled)
+                        .foregroundStyle(Theme.text)
+                }
+                .padding(10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Theme.surface)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Output (first 2 KB)").font(.caption.bold()).foregroundStyle(Theme.textDim)
+                    Text(entry.stdoutHead.isEmpty ? "(empty)" : entry.stdoutHead)
+                        .font(.system(.caption2, design: .monospaced))
+                        .textSelection(.enabled)
+                        .foregroundStyle(Theme.text)
+                }
+                .padding(10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Theme.surface)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .padding(16)
+        }
+        .qubicBackground()
+        .navigationTitle(entry.flag)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    if !txHashes.isEmpty {
+                        Button {
+                            UIPasteboard.general.string = explorerLinks.joined(separator: "\n")
+                        } label: { Label("Copy explorer links (\(txHashes.count))", systemImage: "link") }
+                        ShareLink(item: explorerLinks.joined(separator: "\n"),
+                                  preview: SharePreview("\(entry.flag) — explorer links")) {
+                            Label("Share explorer links", systemImage: "square.and.arrow.up")
+                        }
+                        Divider()
+                        Button {
+                            UIPasteboard.general.string = txHashes.joined(separator: "\n")
+                        } label: { Label("Copy TxHashes (raw)", systemImage: "doc.on.doc") }
+                        Divider()
+                    }
+                    Button {
+                        UIPasteboard.general.string = entry.stdoutHead
+                    } label: { Label("Copy output", systemImage: "doc.text") }
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+        }
     }
 }
 

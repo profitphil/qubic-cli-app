@@ -22,8 +22,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -300,7 +304,15 @@ private fun ArgField(
         }
         Spacer(Modifier.height(4.dp))
         when (arg.type) {
-            "number", "tick" -> OutlinedTextField(
+            "number" -> OutlinedTextField(
+                value = value,
+                onValueChange = { onChange(it.filter(Char::isDigit)) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                visualTransformation = ThousandsSeparatorTransformation,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            "tick" -> OutlinedTextField(
                 value = value,
                 onValueChange = onChange,
                 singleLine = true,
@@ -442,8 +454,16 @@ private fun human(n: Long): String {
     return "%.1f MB".format(mb)
 }
 
+private fun extractTxHash(text: String): String? =
+    Regex("""TxHash:\s+([A-Za-z0-9]+)""").find(text)?.groupValues?.get(1)?.takeIf { it.isNotEmpty() }
+
 @Composable
 private fun ResultBlock(r: ExecResponse) {
+    val ctx = LocalContext.current
+    val txHash = remember(r.stdout) { extractTxHash(r.stdout) }
+    var copiedTxHash by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
     Card(colors = CardDefaults.cardColors(containerColor = QubicColors.Surface)) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -458,6 +478,48 @@ private fun ResultBlock(r: ExecResponse) {
                 if (r.timed_out) {
                     Spacer(Modifier.width(6.dp))
                     Badge("TIMEOUT", QubicColors.Warn)
+                }
+            }
+            if (txHash != null) {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(QubicColors.Base.copy(alpha = 0.7f))
+                        .border(1.dp, QubicColors.Hairline, RoundedCornerShape(8.dp))
+                        .padding(horizontal = 10.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        txHash,
+                        color = QubicColors.TextDim,
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 11.sp,
+                        maxLines = 1,
+                        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    TextButton(
+                        onClick = {
+                            val cm = ctx.getSystemService(android.content.Context.CLIPBOARD_SERVICE)
+                                as android.content.ClipboardManager
+                            cm.setPrimaryClip(android.content.ClipData.newPlainText("TxHash", txHash))
+                            copiedTxHash = true
+                            scope.launch {
+                                kotlinx.coroutines.delay(1500)
+                                copiedTxHash = false
+                            }
+                        },
+                        contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+                    ) {
+                        Text(
+                            if (copiedTxHash) "Copied!" else "Copy TxHash",
+                            color = if (copiedTxHash) QubicColors.Success else QubicColors.Accent,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                    }
                 }
             }
             if (r.stdout.isNotEmpty()) TextBlock("stdout", r.stdout)
@@ -497,3 +559,31 @@ private fun SelectionContainer(content: @Composable () -> Unit) {
 }
 
 // Badge(...) is defined in CategoriesScreen.kt (same package).
+
+private val ThousandsSeparatorTransformation = VisualTransformation { text ->
+    val digits = text.text
+    if (digits.isEmpty()) {
+        return@VisualTransformation TransformedText(AnnotatedString(""), OffsetMapping.Identity)
+    }
+    val out = buildString {
+        val first = digits.length % 3
+        for (i in digits.indices) {
+            if (i > 0 && (i - first) % 3 == 0) append(',')
+            append(digits[i])
+        }
+    }
+    val mapping = object : OffsetMapping {
+        override fun originalToTransformed(offset: Int): Int {
+            if (offset <= 0) return 0
+            val commasBefore = (digits.length - offset) / 3
+            val totalCommas = (digits.length - 1) / 3
+            return offset + (totalCommas - commasBefore)
+        }
+        override fun transformedToOriginal(offset: Int): Int {
+            if (offset <= 0) return 0
+            val slice = out.take(offset)
+            return slice.count { it != ',' }
+        }
+    }
+    TransformedText(AnnotatedString(out), mapping)
+}

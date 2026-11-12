@@ -1,7 +1,15 @@
 import SwiftUI
 
+private func extractTxHash(from text: String) -> String? {
+    guard let regex = try? NSRegularExpression(pattern: #"TxHash:\s+([A-Za-z0-9]+)"#),
+          let match = regex.firstMatch(in: text, range: NSRange(text.startIndex..., in: text)),
+          let range = Range(match.range(at: 1), in: text) else { return nil }
+    return String(text[range])
+}
+
 struct ResultView: View {
     let result: ExecResponse
+    @State private var copiedTxHash = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -17,6 +25,32 @@ struct ResultView: View {
                 if result.timed_out {
                     QBadge(text: "timeout", color: Theme.warn)
                 }
+            }
+
+            if let txHash = extractTxHash(from: result.stdout) {
+                HStack(spacing: 8) {
+                    Text(txHash)
+                        .font(.system(.caption2, design: .monospaced))
+                        .foregroundStyle(Theme.textDim)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                    Spacer()
+                    Button {
+                        UIPasteboard.general.string = txHash
+                        copiedTxHash = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { copiedTxHash = false }
+                    } label: {
+                        Label(copiedTxHash ? "Copied" : "Copy TxHash",
+                              systemImage: copiedTxHash ? "checkmark" : "doc.on.doc")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(copiedTxHash ? Theme.success : Theme.accent)
+                    }
+                }
+                .padding(.horizontal, 10).padding(.vertical, 8)
+                .background(Theme.base.opacity(0.7))
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .strokeBorder(Theme.hairline, lineWidth: 1))
             }
 
             if !result.stdout.isEmpty {

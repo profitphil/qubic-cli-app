@@ -143,7 +143,12 @@ struct CommandDetailView: View {
 
     private var canRun: Bool {
         for a in command.args where a.required {
-            if (values[a.name] ?? "").isEmpty { return false }
+            let v = values[a.name] ?? ""
+            // Allow empty string for `string` types — they may be a valid
+            // "no input" value (e.g. INPUT_FORMAT_STRING). Also allow literal
+            // "" which the run path normalizes to empty.
+            if a.type == "string" { continue }
+            if v.isEmpty { return false }
         }
         return true
     }
@@ -167,11 +172,17 @@ struct CommandDetailView: View {
         defer { running = false }
         var args: [String] = [command.flag]
         for a in command.args {
-            let v = values[a.name] ?? ""
-            if v.isEmpty { continue }
+            var v = values[a.name] ?? ""
+            // Treat literal "" (two quote chars) as an empty string. Users type
+            // this to indicate "no input" for format-string args like
+            // -invokecontractprocedure INPUT_FORMAT_STRING.
+            if v == "\"\"" { v = "" }
             if a.type == "bool" {
                 if v.lowercased() == "true" || v == "1" { continue } // flag-only booleans handled elsewhere
             }
+            // Skip only OPTIONAL empty args. Required empties must still be
+            // passed (as "") so positional arguments don't shift.
+            if v.isEmpty && !a.required { continue }
             args.append(v)
         }
         if command.needsSeed {
@@ -233,10 +244,26 @@ struct ArgField: View {
         .padding(.vertical, 4)
     }
 
+    private static let groupingFormatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        f.usesGroupingSeparator = true
+        f.maximumFractionDigits = 0
+        return f
+    }()
+
+    static func formatGrouped(_ digits: String) -> String {
+        let clean = digits.filter(\.isNumber)
+        guard !clean.isEmpty, let n = Decimal(string: clean) else { return clean }
+        return groupingFormatter.string(from: n as NSDecimalNumber) ?? clean
+    }
+
     @ViewBuilder
     private var input: some View {
         switch arg.type {
-        case "number", "tick":
+        case "number":
+            GroupedNumberField(value: $value, placeholder: arg.name)
+        case "tick":
             TextField(arg.name, text: $value)
                 .keyboardType(.numberPad)
         case "address":
@@ -260,6 +287,35 @@ struct ArgField: View {
             TextField(arg.name, text: $value)
                 .autocorrectionDisabled()
         }
+    }
+}
+
+struct GroupedNumberField: View {
+    @Binding var value: String
+    let placeholder: String
+    @State private var display: String = ""
+
+    var body: some View {
+        TextField(placeholder, text: $display)
+            .keyboardType(.numberPad)
+            .onAppear {
+                display = ArgField.formatGrouped(value)
+            }
+            .onChange(of: display) { newDisplay in
+                let digits = newDisplay.filter(\.isNumber)
+                value = digits
+                let formatted = ArgField.formatGrouped(digits)
+                if formatted != newDisplay {
+                    display = formatted
+                }
+            }
+            .onChange(of: value) { newValue in
+                let digits = newValue.filter(\.isNumber)
+                let formatted = ArgField.formatGrouped(digits)
+                if formatted != display {
+                    display = formatted
+                }
+            }
     }
 }
 

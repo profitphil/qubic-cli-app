@@ -1,6 +1,7 @@
-[
+ [
   {"flag":"-showkeys","category":"Wallet","description":"Generate identity, public key and private key from seed.","args":[],"needsSeed":true,"readOnly":true},
   {"flag":"-getbalance","category":"Wallet","description":"Get balance of an identity (qubic amount, number of in/out txs).","args":[{"name":"IDENTITY","type":"address","required":true,"hint":"60-char identity"}],"needsSeed":false,"readOnly":true},
+  {"flag":"-getbalancesmany","category":"Wallet","description":"Query Qubic balances via QUTIL GetBalances16 in batches of 16 (one 60-char identity per line; any count).","args":[{"name":"FILE","type":"file","required":true}],"needsSeed":false,"readOnly":true},
   {"flag":"-getasset","category":"Assets","description":"Print a list of assets of an identity.","args":[{"name":"IDENTITY","type":"address","required":true,"hint":"60-char identity"}],"needsSeed":false,"readOnly":true},
   {"flag":"-queryassets","category":"Assets","description":"Query and print assets information.","args":[{"name":"QUERY_TYPE","type":"string","required":true},{"name":"QUERY_STRING","type":"string","required":true}],"needsSeed":false,"readOnly":true},
   {"flag":"-gettotalnumberofassetshares","category":"Assets","description":"Get total number of shares currently existing of a specific asset.","args":[{"name":"ISSUER_ID","type":"address","required":true},{"name":"ASSET_NAME","type":"string","required":true}],"needsSeed":false,"readOnly":true},
@@ -8,6 +9,7 @@
   {"flag":"-sendtoaddressintick","category":"Wallet","description":"Send qubic to a target address in a specific tick.","args":[{"name":"TARGET_IDENTITY","type":"address","required":true},{"name":"AMOUNT","type":"number","required":true},{"name":"TICK","type":"tick","required":true}],"needsSeed":true,"readOnly":false},
 
   {"flag":"-qutilsendtomanyv1","category":"Utility","description":"Perform multiple transactions in one tick from a file of ID/amount pairs.","args":[{"name":"FILE","type":"file","required":true}],"needsSeed":true,"readOnly":false},
+  {"flag":"-qutiltransfersharestomanyv1","category":"Utility","description":"Perform multiple share transfers in one tick from a file of ID/amount pairs.","args":[{"name":"ISSUER_ID","type":"address","required":true},{"name":"ASSET_NAME","type":"string","required":true},{"name":"FILE","type":"file","required":true}],"needsSeed":true,"readOnly":false},
   {"flag":"-qutilburnqubic","category":"Utility","description":"Burn qubic.","args":[{"name":"AMOUNT","type":"number","required":true}],"needsSeed":true,"readOnly":false},
   {"flag":"-qutilburnqubicforcontract","category":"Utility","description":"Burn qubic for a specified contract index.","args":[{"name":"AMOUNT","type":"number","required":true},{"name":"CONTRACT_INDEX","type":"number","required":true}],"needsSeed":true,"readOnly":false},
   {"flag":"-qutilqueryfeereserve","category":"Utility","description":"Query qubic amount in the fee reserve of a contract.","args":[{"name":"CONTRACT_INDEX","type":"number","required":true}],"needsSeed":false,"readOnly":true},

@@ -16,13 +16,17 @@ struct RootView: View {
                 .tabItem { Label("Favorites", systemImage: "star") }
                 .tag(1)
 
+            NavigationStack { ScriptsView() }
+                .tabItem { Label("Scripts", systemImage: "doc.text") }
+                .tag(2)
+
             NavigationStack { HistoryView() }
                 .tabItem { Label("History", systemImage: "clock") }
-                .tag(2)
+                .tag(3)
 
             NavigationStack { SettingsView() }
                 .tabItem { Label("Settings", systemImage: "gear") }
-                .tag(3)
+                .tag(4)
         }
     }
 }
