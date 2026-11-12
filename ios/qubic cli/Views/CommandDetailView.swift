@@ -172,7 +172,7 @@ struct CommandDetailView: View {
             if a.type == "bool" {
                 if v.lowercased() == "true" || v == "1" { continue } // flag-only booleans handled elsewhere
             }
-            args.append(v)
+            args.append(a.type == "hex" ? QubicIdentity.normalizeHexArg(v) : v)
         }
         if command.needsSeed {
             let seed = useStoredSeed ? settings.seed : (values["__seed"] ?? "")
