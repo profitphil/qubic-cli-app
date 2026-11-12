@@ -6,6 +6,7 @@ struct QubicApp: App {
     @StateObject private var catalog = Catalog()
     @StateObject private var history = History()
     @StateObject private var assetsStore = AssetsStore()
+    @StateObject private var addressStore = AddressStore()
 
     init() { QubicAppearance.apply() }
 
@@ -16,6 +17,7 @@ struct QubicApp: App {
                 .environmentObject(catalog)
                 .environmentObject(history)
                 .environmentObject(assetsStore)
+                .environmentObject(addressStore)
                 .tint(Theme.accent)
                 .preferredColorScheme(.dark)
         }

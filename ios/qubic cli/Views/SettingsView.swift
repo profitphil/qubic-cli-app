@@ -98,8 +98,13 @@ struct SettingsView: View {
                 } label: {
                     Label("Manage assets", systemImage: "list.bullet.rectangle.fill")
                 }
+                NavigationLink {
+                    AddressesManagerView()
+                } label: {
+                    Label("Manage addresses", systemImage: "person.crop.circle.fill.badge.checkmark")
+                }
             } header: {
-                Text("Assets").foregroundStyle(Theme.textDim)
+                Text("Assets & Addresses").foregroundStyle(Theme.textDim)
             }
             .listRowBackground(Theme.surface)
 

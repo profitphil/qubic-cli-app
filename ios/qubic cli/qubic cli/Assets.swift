@@ -84,3 +84,32 @@ enum AssetArgDetector {
         return nil
     }
 }
+
+
+
+/// Qubic identity (60 chars A–Z) → 32-byte public key as 64-char lowercase hex.
+/// Needed for qubic-cli args typed `hex` such as ISSUER_IN_HEX.
+enum QubicIdentity {
+    static func isIdentity(_ s: String) -> Bool {
+        s.count == 60 && s.utf8.allSatisfy { $0 >= 65 && $0 <= 90 }
+    }
+
+    static func publicKeyHex(_ identity: String) -> String? {
+        guard isIdentity(identity) else { return nil }
+        let chars = Array(identity.utf8)
+        var out = ""
+        for i in 0..<4 {
+            var v: UInt64 = 0
+            for j in stride(from: 13, through: 0, by: -1) {
+                v = v &* 26 &+ UInt64(chars[i * 14 + j] - 65)
+            }
+            for b in 0..<8 { out += String(format: "%02x", UInt8((v >> UInt64(8 * b)) & 0xff)) }
+        }
+        return out
+    }
+
+    /// For `hex` args: if the user (or the asset picker) supplied a 60-char identity, convert it.
+    static func normalizeHexArg(_ value: String) -> String {
+        publicKeyHex(value) ?? value
+    }
+}

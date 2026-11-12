@@ -163,17 +163,29 @@ struct AssetsManagerView: View {
                     .listRowBackground(Theme.surface)
             }
             ForEach(store.assets) { a in
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        Text(a.name).font(.headline).foregroundStyle(Theme.text)
-                        if a.custom { QBadge(text: "custom") }
+                HStack(alignment: .top, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack {
+                            Text(a.name).font(.headline).foregroundStyle(Theme.text)
+                            if a.custom { QBadge(text: "custom") }
+                        }
+                        Text(a.issuer)
+                            .font(.system(.caption, design: .monospaced))
+                            .foregroundStyle(Theme.textDim)
+                            .lineLimit(1).truncationMode(.middle)
+                        if let n = a.note {
+                            Text(n).font(.caption2).foregroundStyle(Theme.textFaint)
+                        }
                     }
-                    Text(a.issuer)
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundStyle(Theme.textDim)
-                        .lineLimit(1).truncationMode(.middle)
-                    if let n = a.note {
-                        Text(n).font(.caption2).foregroundStyle(Theme.textFaint)
+                    Spacer()
+                    if a.custom {
+                        Button(role: .destructive) {
+                            store.remove(a)
+                        } label: {
+                            Image(systemName: "trash")
+                                .foregroundStyle(Theme.danger)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
                 .listRowBackground(Theme.surface)

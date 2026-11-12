@@ -267,15 +267,21 @@ struct ArgField: View {
             TextField(arg.name, text: $value)
                 .keyboardType(.numberPad)
         case "address":
-            TextField(arg.name, text: $value)
-                .textInputAutocapitalization(.characters)
-                .autocorrectionDisabled()
-                .font(.system(.body, design: .monospaced))
+            HStack {
+                TextField(arg.name, text: $value)
+                    .textInputAutocapitalization(.characters)
+                    .autocorrectionDisabled()
+                    .font(.system(.body, design: .monospaced))
+                AddressPickerButton(value: $value)
+            }
         case "hex":
-            TextField(arg.name, text: $value)
-                .textInputAutocapitalization(.never)
-                .autocorrectionDisabled()
-                .font(.system(.body, design: .monospaced))
+            HStack {
+                TextField(arg.name, text: $value)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .font(.system(.body, design: .monospaced))
+                AddressPickerButton(value: $value)
+            }
         case "bool":
             Toggle("", isOn: Binding(
                 get: { value == "true" },
